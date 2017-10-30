@@ -25,7 +25,7 @@ public class Client {
 
     public static void main(String[] args) throws Exception {
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             start("send:" + i);
         }
     }

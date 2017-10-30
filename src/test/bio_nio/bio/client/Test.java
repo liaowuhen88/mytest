@@ -15,7 +15,7 @@ public class Test {
     //测试主方法
     public static void main(String[] args) throws InterruptedException {
         //运行客户端
-        for (int count = 0; count < 10000; count++) {
+        for (int count = 0; count < 1000; count++) {
             Deal deal = new Deal(count);
             new Thread(deal).start();
         }

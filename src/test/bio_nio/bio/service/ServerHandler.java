@@ -43,7 +43,7 @@ public class ServerHandler implements Runnable {
                 if ((expression = in.readLine()) == null) break;
                 log.info("服务器收到消息：" + expression);
                 try {
-                    Thread.currentThread().sleep(1000 * 10);
+                    Thread.currentThread().sleep(1000);
                     result = Calculator.cal(expression).toString();
                 } catch (Exception e) {
                     result = "计算错误：" + e.getMessage();

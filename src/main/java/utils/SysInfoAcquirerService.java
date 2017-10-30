@@ -25,16 +25,16 @@ import java.util.TimerTask;
 public class SysInfoAcquirerService {
     private static final int CPUTIME = 5000;
     /**
-     * 网管进程信息采集周期(注意：PERIOD_TIME 一定要大于 SLEEP_TIME )
-     */
-    private static final int PERIOD_TIME = 1000 * 3;
-    /**
      * 此类中Thread.sleep()里的线程睡眠时间
      */
     private static final int SLEEP_TIME = 1000 * 60 * 9;
     private static final int PERCENT = 100;
     private static final int FAULTLENGTH = 10;
     private static Logger log = LoggerFactory.getLogger(SysInfoAcquirerService.class);
+    /**
+     * 网管进程信息采集周期(注意：PERIOD_TIME 一定要大于 SLEEP_TIME )
+     */
+    private int PERIOD_TIME = 1000 * 3;
     private String isWindowsOrLinux = isWindowsOrLinux();
     private String pid = "";
     private Timer sysInfoGetTimer = new Timer("sysInfoGet");
@@ -44,6 +44,13 @@ public class SysInfoAcquirerService {
      *
      * @return
      */
+
+    public SysInfoAcquirerService(Integer PERIOD_TIME) {
+        this.PERIOD_TIME = PERIOD_TIME;
+    }
+
+    public SysInfoAcquirerService() {
+    }
 
     public static void main(String[] args) {
         SysInfoAcquirerService sas = new SysInfoAcquirerService();
